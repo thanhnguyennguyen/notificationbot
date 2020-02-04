@@ -2,10 +2,11 @@
 send notifications to slack, telegram
 
 # Install
+https://www.npmjs.com/package/noti_bot
 ```bash
 npm install noti_bot
 ```
-# Usages
+# Usage
 ```javascripts
 const {
     notifySlack,
