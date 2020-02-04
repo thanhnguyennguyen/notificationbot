@@ -14,5 +14,8 @@ const notifySlack = (msg, token, target, botname, boticon) => {
     exec(cmd)
 }
 
-module.exports = { notifySlack, notifyTelegram}
+module.exports = {
+    slack: notifySlack,
+    telegram: notifyTelegram,
+}
 
