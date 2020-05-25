@@ -8,7 +8,7 @@ npm install noti_bot
 ```
 # Setup telegram/slack bot
 - Slack: Incomming webhook url (https://slack.com/intl/en-vn/help/articles/115005265063-Incoming-Webhooks-for-Slack)
--Telegram: 
+- Telegram: 
     - Go to `@BotFather`
     - `/start` to create your bot
     - Save your bot's token
