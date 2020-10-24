@@ -1,6 +1,6 @@
 {
   "name": "noti_bot",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Send notifications to slack, telegram",
   "main": "index.js",
   "scripts": {
