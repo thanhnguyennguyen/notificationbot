@@ -3,12 +3,12 @@ const {
 } = require('child_process')
 const notifyTelegram = (msg, token, target, isHtmlMode) => {
     if (token.trim() != '' && target.trim() != '') {
-	let cmd
+        let cmd
         if (isHtmlMode) {
-		cmd = "curl -X POST -H 'Content-Type: application/json' -d '{\"chat_id\": \"" + target + "\", \"text\": \"" + msg + "\", \"parse_mode\": \"html\", \"disable_web_page_preview\": true}' https://api.telegram.org/bot" + token + "/sendMessage"
-	} else {
-		cmd = "curl -X POST -H 'Content-Type: application/json' -d '{\"chat_id\": \"" + target + "\", \"text\": \"" + msg + "\"}' https://api.telegram.org/bot" + token + "/sendMessage"
-	}
+            cmd = "curl -X POST -H 'Content-Type: application/json' -d '{\"chat_id\": \"" + target + "\", \"text\": \"" + msg + "\", \"parse_mode\": \"html\", \"disable_web_page_preview\": true}' https://api.telegram.org/bot" + token + "/sendMessage"
+        } else {
+            cmd = "curl -X POST -H 'Content-Type: application/json' -d '{\"chat_id\": \"" + target + "\", \"text\": \"" + msg + "\"}' https://api.telegram.org/bot" + token + "/sendMessage"
+        }
         exec(cmd)
     }
 }
@@ -21,7 +21,15 @@ const notifySlack = (msg, token, target, botname, boticon) => {
     }
 }
 
+const notifyDiscord = (msg, webhook, target) => {
+    if (webhook.trim() != '' && target.trim() != '') {
+        let cmd = "curl -X POST --data '{\"content\":\"" + msg + "\"}' --header \"Content-Type:application/json\" " + webhook
+        exec(cmd)
+    }
+}
+
 module.exports = {
     slack: notifySlack,
     telegram: notifyTelegram,
+    discord: notifyDiscord,
 }
