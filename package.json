@@ -21,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/thanhnguyennguyen/noti_bot/issues"
   },
-  "homepage": "https://github.com/thanhnguyennguyen/noti_bot#readme"
+  "homepage": "https://github.com/thanhnguyennguyen/noti_bot#readme",
+  "dependencies": {
+    "axios": "^0.21.1"
+  }
 }
