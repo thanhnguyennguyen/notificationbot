@@ -1,8 +1,11 @@
 {
   "name": "noti_bot",
-  "version": "1.1.0",
+  "version": "1.1.2",
   "description": "Send notifications to slack, telegram",
-  "main": "index.js",
+  "main": "src/index.js",
+   "files": [
+    "dist"
+],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -24,5 +27,6 @@
   "homepage": "https://github.com/thanhnguyennguyen/noti_bot#readme",
   "dependencies": {
     "axios": "^0.21.1"
-  }
+  },
+  "prepublishOnly": "webpack --mode=production"
 }
