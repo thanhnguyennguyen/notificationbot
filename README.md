@@ -43,6 +43,9 @@ npm install noti_bot
 
     bot.onText(/\/mytelegramid/, async (msg, match) => {
         let res = `Your telegram id is ${msg.from.id}`
+        if (msg.chat.id != msg.from.id) {
+            res += `\n Your group chatId: ${msg.chat.id}`
+        }
         bot.sendMessage(msg.chat.id, res, {
             reply_to_message_id: msg.message_id,
         })
