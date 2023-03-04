@@ -24,6 +24,8 @@ const notifyTelegram = async (msg, token, target, isHtmlMode) => {
           await axios(options)
     }
 }
+
+// send markdown format if you want to include hyperlink
 const notifySlack = async (msg, token, target, botname, boticon) => {
     if (token.trim() != '' && target.trim() != '') {
         botname = botname || "noti-bot"
@@ -33,7 +35,15 @@ const notifySlack = async (msg, token, target, botname, boticon) => {
             payload: JSON.stringify({
                 "channel" : target,
                 "username":  botname,
-                "text": msg,
+                "blocks": [
+                    {
+                        "type": "section",
+                        "text": {
+                            "type": "mrkdwn",
+                            "text": msg 
+                        }
+                    }
+                ],
                 "icon_emoji": boticon,
             
             })
