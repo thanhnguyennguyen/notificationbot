@@ -41,9 +41,9 @@ const notifyTelegramWithInlineKeyboard = async (msg, btnList, token, target, isH
         let params = {
             "chat_id": target,
             "text": msg,
-            "reply_markup": {
+            "reply_markup": JSON.stringify({
                 inline_keyboard: btnList,
-            },
+            }),
         }
         if (isHtmlMode) {
             params.parse_mode = 'html'
@@ -124,7 +124,10 @@ const notifyDiscord = async (msg, webhook) => {
 
 module.exports = {
     slack: notifySlack,
+    notifySlack: notifySlack,
     telegram: notifyTelegram,
-    telegram2: notifyTelegramWithInlineKeyboard,
+    notifyTelegram: notifyTelegram,
+    notifyTelegramWithMarkupButton: notifyTelegramWithInlineKeyboard,
     discord: notifyDiscord,
+    notifyDiscord: notifyDiscord,
 }
